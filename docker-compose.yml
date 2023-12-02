@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  biblioteca_vue:
+    container_name: biblioteca
+    build: ./vue-biblioteca
+    ports:
+      - 5173:5173
+    depends_on:
+      - biblioteca_app  
+  biblioteca_app:
+    container_name: biblioteca_app
+    image: biblioteca_app:1.0.0
+    build: ./biblioteca
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_URL=jdbc:postgresql://biblioteca_db:5432/postgres
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgres
+    depends_on:
+      - biblioteca_db  
+  biblioteca_db:  
+    container_name: biblioteca_db
+    image: postgres:12
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
