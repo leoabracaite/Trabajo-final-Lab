@@ -1,5 +1,5 @@
 # Trabajo-final-Lab
-Para iniciar la aplicación primeramente se debe contar tanto con docker-compose.
+Para iniciar la aplicación primeramente se debe contar con docker-compose.
 
 -Primero nos ubicamos en la carpeta biblioteca, donde se encuentra nuestra api de springboot, y ejecutaremos el siguiente comando en una terminal:
 
